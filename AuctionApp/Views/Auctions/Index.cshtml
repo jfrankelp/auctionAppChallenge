@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AuctionApp.Models.Auction>
+
+@{
+    ViewData["Title"] = "Available Auctions";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Start an Auction</a>
+</p>
+@*<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a asp-action="Details" asp-route-id="@item.AuctionId">@Html.DisplayFor(modelItem => item.ShortDescription)</a>
+                    </div>
+                    <div class="panel-body">
+                        <p class="panel-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="panel-footer">
+                        <small class="text-muted">@Html.DisplayNameFor(model => model.ModifiedDate) @Html.DisplayFor(modelItem => item.ModifiedDate)</small>
+                        <button asp-action="Edit" asp-route-id="@item.AuctionId">Edit</button>
+                        <button asp-action="Delete" asp-route-id="@item.AuctionId">Delete</button>
+                        <button asp-controller="Bids" asp-action="Create" asp-route-id="@item.AuctionId">Place Bid</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>*@
+
+<table class="table table-striped table-responsive">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.AuctionId">@Html.DisplayFor(modelItem => item.ShortDescription)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-default" asp-action="Edit" asp-route-id="@item.AuctionId">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.AuctionId">Delete</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Bids" asp-action="Create" asp-route-id="@item.AuctionId">Place Bid</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

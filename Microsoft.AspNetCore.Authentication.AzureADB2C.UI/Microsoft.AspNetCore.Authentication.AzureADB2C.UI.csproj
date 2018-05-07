@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <Description></Description>
+    <ViewAssemblyDescription>Precompiled views assembly for the ASP.NET Core Azure Active Directory B2C Integration package.</ViewAssemblyDescription>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageTags>aspnetcore;authentication;AzureADB2C</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ProvideApplicationPartFactoryAttributeTypeName>Microsoft.AspNetCore.Mvc.ApplicationParts.NullApplicationPartFactory, Microsoft.AspNetCore.Mvc.Core</ProvideApplicationPartFactoryAttributeTypeName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0-preview2-final" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.0-preview2-final" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0-preview2-final" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="2.1.0-preview2-final" />
+  </ItemGroup>
+
+    <ItemGroup>
+     <RazorAssemblyAttribute Include="System.Reflection.AssemblyDescriptionAttribute">
+       <_Parameter1>$(ViewAssemblyDescription)</_Parameter1>
+     </RazorAssemblyAttribute>
+     <RazorAssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="'$(BuildNumber)' != ''">
+       <_Parameter1>BuildNumber</_Parameter1>
+       <_Parameter2>$(BuildNumber)</_Parameter2>
+     </RazorAssemblyAttribute>
+     <RazorAssemblyAttribute Include="System.Resources.NeutralResourcesLanguageAttribute" Condition="'$(NeutralLanguage)' != '' and '$(GenerateNeutralResourcesLanguageAttribute)' == 'true'">
+       <_Parameter1>$(NeutralLanguage)</_Parameter1>
+     </RazorAssemblyAttribute>
+   </ItemGroup>
+  
+</Project>
